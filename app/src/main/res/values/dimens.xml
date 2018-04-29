@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="ColorCheckWidth">55dp</dimen>
+    <dimen name="ColorCheckHeight">55dp</dimen>
+    <dimen name="ColorCheckMargin">8dp</dimen>
+
+</resources>

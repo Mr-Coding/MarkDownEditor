@@ -1,0 +1,125 @@
+<html>
+<head>
+    <title>Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+*{ padding: 0px; margin:  0px; font-family: "微软雅黑"; word-break:break-all; }
+html,body{ width: 100%; height: 100%;}
+*{box-sizing: border-box;}
+pre{
+                    white-space: pre-wrap;       /* css-3 */ 
+                    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */ 
+                    white-space: -pre-wrap;      /* Opera 4-6 */ 
+                    white-space: -o-pre-wrap;    /* Opera 7 */ 
+                    word-wrap: break-word; 
+}#MD-Container div{ margin: 12px 0px; }
+#MD-Container{  
+      width: 99%;
+      height: 100%;
+      margin: 0 auto;
+      padding: 10px 12px 10px 12px;
+}
+.Code-Container{
+      margin: 12px 0px;
+      padding: 10px 20px 10px 20px;
+      font-size: 0.8em;
+      font-family: "微软雅黑";
+      color: rgb(147,147,147);
+      background-color: rgb(248,248,248);
+      border: 1px solid rgb(221,221,221);
+      border-radius: 5px;
+}
+/*块级代码框*/
+.code-box{
+      margin: 12px 5px;
+      display: block;
+      padding: 10px 20px 10px 20px;
+      font-size: 1em;
+      font-family: Consolas;
+      color: #717173;
+      /*color: rgb(147,147,147);*/
+      background-color: rgb(248,248,248);
+      border: 1px solid rgb(221,221,221);
+      border-radius: 5px;
+                    white-space: pre-wrap;       /* css-3 */ 
+                    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */ 
+                    white-space: -pre-wrap;      /* Opera 4-6 */ 
+                    white-space: -o-pre-wrap;    /* Opera 7 */ 
+                    word-wrap: break-word; 
+}
+/*单行代码框*/
+.singleLine-code-box{
+      display: inline-block;
+      margin: 0px 5px;
+      /*padding: 10px 20px 10px 20px;*/
+      padding: 0px 3px 0px 3px;
+      font-size: 0.8em;
+      font-family: "微软雅黑";
+      color: #808080;
+      background-color: rgb(248,248,248);
+      border: 1px solid rgb(221,221,221);
+      border-radius: 3px;
+}
+            /*分割线*/
+.line-style{
+      width: 100%;
+      height: 5px;
+      background-color: #ccc;
+      border-radius: 50px;
+}
+            /*链接*/
+.Link{
+      text-decoration: none;
+}
+            /*图片*/
+.Image{
+      max-width: 100%;
+      box-sizing: content-box;
+}
+            /*引用*/
+.Cite{
+      border-left: #ccc 5px solid;
+      padding: 5px 10px 5px 10px;
+      margin-left: 5px;
+}
+            /*粗体*/
+.Bold{      font-weight:bold;       }
+
+h1,h2,h3,h4,h5,h6{
+      margin: 5px 0px;
+}
+
+span{
+      display: inline-block;
+      margin: 2px 0px;   
+      color: #808080;         
+}
+        </style>
+</head>
+<body>
+<div id="MD-Container">
+    <h3><i>文件储存位置</i>： </h3>
+    <h3><b>xxx.md和html文件均在:  "sdcard/MarkDown编辑器/"  目录下！</b></h3>
+    <div class="line-style"></div>
+    <br/>
+    <h3><i>标题语法</i>：</h3><pre class="code-box"># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+</pre><h3><i>效果</i>：</h3><h1>一级标题</h1><h2>二级标题</h2><h3>三级标题</h3><h4>四级标题</h4><h5>五级标题</h5><h6>六级标题</h6><div class="line-style"></div><br/><h3><i>粗体语法</i>：</h3><pre class="code-box">** 粗体 **
+</pre><h3><i>效果</i>：</h3><b>粗体</b><div class="line-style"></div><br/><h3><i> 斜体语法</i>：</h3><pre class="code-box">_斜体_
+</pre><h3><i>效果</i> ：</h3><i>斜体</i><div class="line-style"></div><br/><h3><i>链接语法</i> :</h3><pre class="code-box">[链接名](链接地址)
+</pre><h3><i>效果</i> ：</h3><a class="Link" href="#">链接</a><br/><div class="line-style"></div><br/><h3><i>图片语法</i> ：</h3><pre class="code-box">![图片名](图片链接)
+</pre><h3><b>效果</b> ：</h3><img class="Image" src="https://coding.net/u/ching2017/p/MarkDown-Editor/git/raw/master/image/icon.png" alt="图片名"><br/><b>注意！ 目前只支持超链接的方式插入图片。</b><div class="line-style"></div><br/><h3><i>代码框语法</i> ：</h3><pre class="code-box">  ```行内代码框```
+  ```
+  多行代码框
+  ```
+</pre><h3><i>效果</i> ：</h3><code class="singleLine-code-box">单行代码框</code></br><pre class="code-box">多行代码框
+</pre><div class="line-style"></div><br/><h3><b>分割线语法</b> ：</h3><pre class="code-box">---
+</pre><h3><i>效果</i> ：</h3><div class="line-style"></div><div class="line-style"></div>        </div>
+</body>
+</html>

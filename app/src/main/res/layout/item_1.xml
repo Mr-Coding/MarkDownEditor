@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="115dp"
+    android:paddingTop="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/item_layout1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:paddingRight="8dp"
+        android:background="@drawable/touch_bg">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/item_tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/item_chk"
+                android:paddingLeft="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Title"
+                android:textColor="#808080"
+                android:textSize="25sp"/>
+            <CheckBox
+                android:id="@+id/item_chk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/item_tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginBottom="2dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Content..."
+            android:textColor="#bababa"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/item_tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingBottom="8dp"
+            android:textColor="#a6a6a6"
+            android:textSize="12sp"
+            android:text="2018年4月10日"/>
+    </LinearLayout>
+
+</LinearLayout>

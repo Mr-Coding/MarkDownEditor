@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name2">马克档</string>
+    <string name="app_name">MarkDown编辑器</string>
+    <string name="app_version">V 1.6.3(7)</string>
+
+    <string name="search">搜索</string>
+    <string name="opCheckbox">打开多选</string>
+    <string name="type">模式</string>
+    <string name="more">更多</string>
+    <string name="about">关于</string>
+    <string name="help">帮助</string>
+    <string name="settings">设置</string>
+
+    <string name="inputName">请输入标题</string>
+    <string name="reame">新标题</string>
+    <string name="fileName">标题</string>
+
+    <string name="yes">确定</string>
+    <string name="cancel">取消</string>
+
+    <string name="add">新建</string>
+    <string name="delete">删除</string>
+    <string name="open">打开</string>
+    <string name="rename">重命名</string>
+
+    <string name="full_screen">全屏</string>
+    <string name="menu">菜单</string>
+    <string name="editor">编辑</string>
+    <string name="preview">预览</string>
+
+    <string name="saveAsMD">保存为md</string>
+    <string name="saveAsHtml">保存为HTML</string>
+    <string name="saveAsImg">保存为图片</string>
+
+    <string name="developer">开发者</string>
+    <string name="developer_name">好彩</string>
+    <string name="email">hifrankq@outlook.com</string>
+    <string name="wechat">chinghaocai</string>
+
+    <string name="settings_notice2">开启会检测App同名目录下的md文件，并存到数据库，原件放入以“文件名+时间”命名的文件夹里。md文件编码务必是UTF-8，否则会乱码哦！！！</string>
+    <string name="settings_notice">检测存储目录下的MD文件(UTF-8编码)并保存到数据库</string>
+
+</resources>

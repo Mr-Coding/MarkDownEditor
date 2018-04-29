@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#eaeaea">
+
+    <HorizontalScrollView
+        android:id="@+id/HSV"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/LL"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/title1_but"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/StyleButton"
+                android:text="H1"/>
+
+            <Button
+                android:id="@+id/title3_but"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/StyleButton"
+                android:text="H3" />
+
+            <Button
+                android:id="@+id/title5_but"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/StyleButton"
+                android:text="H5" />
+
+            <Button
+                android:id="@+id/bold_but"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                style="@style/StyleButton"
+                android:text="粗体"/>
+
+            <Button
+                android:id="@+id/italic_but"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                style="@style/StyleButton"
+                android:text="斜体"/>
+
+            <Button
+                android:id="@+id/img_but"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                style="@style/StyleButton"
+                android:text="图片"/>
+
+            <Button
+                android:id="@+id/link_but"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                style="@style/StyleButton"
+                android:text="链接" />
+
+            <Button
+                android:id="@+id/codeBox_but"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                style="@style/StyleButton"
+                android:text="CODE"/>
+
+            <Button
+                android:id="@+id/line_but"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                style="@style/StyleButton"
+                android:text="分割线"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

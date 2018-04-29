@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/main_search_menu_btn"
+        android:title="@string/search"
+        android:icon="@drawable/icon_search"
+        app:showAsAction="always"/>
+    <item android:id="@+id/main_opchk_menu_btn"
+        android:title="@string/opCheckbox"
+        android:icon="@drawable/icon_opchk"
+        app:showAsAction="always"/>
+    <item android:id="@+id/main_more_menu_btn"
+        android:title="@string/more"
+        android:icon="@drawable/icon_more"
+        app:showAsAction="always"/>
+</menu>

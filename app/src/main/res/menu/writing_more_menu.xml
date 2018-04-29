@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/saveAsHTML"
+        android:title="@string/saveAsHtml"/>
+    <item android:id="@+id/saveAsImg"
+        android:title="@string/saveAsImg"/>
+    <item android:id="@+id/saveAsMd"
+        android:title="@string/saveAsMD"/>
+</menu>
