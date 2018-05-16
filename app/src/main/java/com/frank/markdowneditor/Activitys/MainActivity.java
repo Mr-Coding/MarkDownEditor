@@ -190,9 +190,21 @@ public class MainActivity extends AppCompatActivity {
                     controlPanel.setStatus(ControlPanel.STATUS.SHOW);
                 }
                 break;
-            case R.id.main_more_menu_btn:
-                showMoreMenu(findViewById(R.id.main_more_menu_btn));
+            case R.id.main_setting_menu_btn:
+                Intent intent1 = new Intent(MainActivity.this,SettingsActivity.class);
+                startActivity(intent1);
                 break;
+            case R.id.main_help_menu_btn:
+                Intent intent2 = new Intent(MainActivity.this,HelpActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.main_about_menu_btn:
+                Intent intent3 = new Intent(MainActivity.this,AboutActivity.class);
+                startActivity(intent3);
+                break;
+//            case R.id.main_more_menu_btn:
+//                showMoreMenu(findViewById(R.id.main_more_menu_btn));
+//                break;
         }
         return super.onOptionsItemSelected(item);
     }

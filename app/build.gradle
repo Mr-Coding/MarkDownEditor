@@ -26,4 +26,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:design:27.1.1'
     implementation files('libs/litepal-1.6.1.jar')
+    implementation files('libs/MDTool-1.1.3.jar')
 }
