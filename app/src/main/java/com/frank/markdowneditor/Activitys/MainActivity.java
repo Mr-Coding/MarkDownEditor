@@ -10,7 +10,6 @@ import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -18,10 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import com.frank.markdowneditor.Adapters.MyRecyclerView.MyDiffUtil;
-import com.frank.markdowneditor.Adapters.MyRecyclerView.SimpleItemTouchHelperCallback;
 import com.frank.markdowneditor.Annotation.FindView;
 import com.frank.markdowneditor.Annotation.ViewId;
 import com.frank.markdowneditor.Article;
@@ -54,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private MySearchView   searchView;
     private List<Article>  articles;
     private SettingsData   settingsData;
+    private IOTools        ioTools;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,15 +72,15 @@ public class MainActivity extends AppCompatActivity {
         controlPanel.setOnMyClickListener(new ControlPanel.OnMyClickListener() {
             @Override public void saveHtml() {
                 Log.i("M","saveHtml");
-                if (IOTools.savaAsHtml(adapter.getSelectArticle())){
-                    Snackbar.make(getWindow().getDecorView(),"已保存到"+ IOTools.getProjectPath()+"下！",Snackbar.LENGTH_LONG).show();
+                if (ioTools.savaAsHtml(adapter.getSelectArticle())){
+                    Snackbar.make(getWindow().getDecorView(),"已保存到"+ ioTools.getProjectPath()+"下！",Snackbar.LENGTH_LONG).show();
                 }else {
                     Snackbar.make(getWindow().getDecorView(),"保存失败！",Snackbar.LENGTH_LONG).show();
                 }
             }
             @Override public void saveMd() {
-                if (IOTools.saveAsMD(adapter.getSelectArticle())){
-                    Snackbar.make(getWindow().getDecorView(),"已保存到"+ IOTools.getProjectPath()+"下！",Snackbar.LENGTH_LONG).show();
+                if (ioTools.saveAsMD(adapter.getSelectArticle())){
+                    Snackbar.make(getWindow().getDecorView(),"已保存到"+ ioTools.getProjectPath()+"下！",Snackbar.LENGTH_LONG).show();
                 }else {
                     Snackbar.make(getWindow().getDecorView(),"保存失败！",Snackbar.LENGTH_LONG).show();
                 }
@@ -146,9 +144,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData(){
+        ioTools = new IOTools(this);
         articles = DataSupport.findAll(Article.class);
         Tools.sortByTime(articles);
-        settingsData = new SettingsData(this,"settings");
+        settingsData = new SettingsData(this);
     }
 
     @Override public boolean onContextItemSelected(MenuItem item) {
@@ -283,7 +282,9 @@ public class MainActivity extends AppCompatActivity {
         }
         boolean isOpenFindMd = settingsData.isOpenFindMd(false);
         if (isOpenFindMd){
-            int length = MD.saveAsSqlite();
+            MD md = new MD();
+            md.refreshPROJECT_PATH(this);
+            int length = md.saveAsSqlite();
             if (length != -1){
                 List<Article> newArticles = DataSupport.findAll(Article.class);
                 Tools.sortByTime(newArticles);

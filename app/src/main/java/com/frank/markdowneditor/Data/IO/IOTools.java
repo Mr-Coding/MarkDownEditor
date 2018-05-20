@@ -1,23 +1,26 @@
 package com.frank.markdowneditor.Data.IO;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.util.Log;
 import com.frank.markdowneditor.AnalyzeString;
 import com.frank.markdowneditor.Article;
-import com.frank.markdowneditor.Tools;
+import com.frank.markdowneditor.Data.SettingsData;
 import com.frank.markdowneditor.template.HTMLTemp;
 import com.frank.markdowneditor.template.HTML_TXT;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class IOTools {
@@ -25,17 +28,26 @@ public class IOTools {
     private   static String PROJECT_NAME = "/MarkDown编辑器/";
     protected static String PROJECT_PATH = ROOT+PROJECT_NAME;
 
+    public IOTools(){}
+    public IOTools(Context context) {
+        PROJECT_PATH = new SettingsData(context).getDirectory(ROOT+"/MarkDown编辑器/");
+    }
+
+    public static String getROOT() {
+        return ROOT;
+    }
+
     /**
      * 获取项目绝对路径
      * @return
      */
-    public static String getProjectPath() { return PROJECT_PATH; }
+    public String getProjectPath() { return PROJECT_PATH; }
 
     /**
      * 检测项目目录是否存在，不存在则创建
      * @return 如创建成功或已存在就返回true，如不存在也没创建成功就返回false
      */
-    protected static boolean checkDir(){
+    protected boolean checkDir(){
         File fullPath = new File(PROJECT_PATH);
         return fullPath.exists() || fullPath.mkdirs();
     }
@@ -45,7 +57,7 @@ public class IOTools {
      * @param itemName 要检测的子目录
      * @return 如创建成功或已存在就返回true，如不存在也没创建成功就返回false
      */
-    private static boolean checkDir(String itemName){
+    private boolean checkDir(String itemName){
         File fullPath = new File(PROJECT_PATH +"/"+itemName+"/");
         return fullPath.exists() || fullPath.mkdirs();
     }
@@ -56,7 +68,7 @@ public class IOTools {
      * @param article 实体类
      * @return 保存成功返回true，反之false
      */
-    public static boolean saveAsImg(Bitmap bmp,Article article) {
+    public boolean saveAsImg(Bitmap bmp,Article article) {
         checkDir();
         boolean isSuccess = false;
         String title = article.getTitle();
@@ -80,7 +92,7 @@ public class IOTools {
      * @param articles 实体类集合
      * @return 保存成功返回true，反之false
      */
-    public static boolean saveAsMD(List<Article> articles) {
+    public boolean saveAsMD(List<Article> articles) {
         if (articles == null || articles.size() == 0){ return false; }
         checkDir();
         boolean isSuccess = false;
@@ -108,7 +120,7 @@ public class IOTools {
      * @param article 实体类
      * @return 保存成功返回true，反之false
      */
-    public static boolean saveAsMD(Article article) {
+    public boolean saveAsMD(Article article) {
         if (article == null){ return false; }
         checkDir();
         boolean isSuccess = false;
@@ -135,7 +147,7 @@ public class IOTools {
      * @param articles 实体类集合
      * @return 保存成功返回true，反之false
      */
-    public static boolean savaAsHtml(List<Article> articles){
+    public boolean savaAsHtml(List<Article> articles){
         if (articles == null || articles.size() == 0){ return false; }
         checkDir();
         boolean isSuccess = false;
@@ -164,7 +176,7 @@ public class IOTools {
      * @param article 实体类
      * @return 保存成功返回true，反之false
      */
-    public static boolean savaAsHtml(Article article,Type type){
+    public boolean savaAsHtml(Article article,Type type){
         if (article == null){ return false; }
         checkDir();
         boolean isSuccess = false;
@@ -205,7 +217,7 @@ public class IOTools {
      * @param fileContent 内容
      * @param fileType 后缀名
      */
-    private static void WriterContent(String title, String fileContent,String fileType){
+    private void WriterContent(String title, String fileContent,String fileType){
         File fullPath = new File(PROJECT_PATH +"/");
         BufferedWriter BWriter = null;
         try {
@@ -225,7 +237,7 @@ public class IOTools {
         }
     }
 
-    protected static String ReadContent(String title, String fileType) {
+    protected String ReadContent(String title, String fileType) {
         File fullPath = new File(PROJECT_PATH +"/");
         InputStreamReader isr  = null;
         BufferedReader BReader = null;
@@ -258,6 +270,42 @@ public class IOTools {
             }
         }
         return content;
+    }
+
+    /**
+     * 过滤掉非文件夹的文件
+     */
+    private FileFilter fileFilter = new FileFilter() {
+        @Override
+        public boolean accept(File pathname) {
+            return pathname.isDirectory() && !pathname.isHidden();
+        }
+    };
+
+    /**
+     * 获取指定根路径下的子目录集合
+     * @return
+     */
+    public List<File> getDirs(){
+        checkDir();
+        File root = new File(ROOT);
+        List<File> dirs = Arrays.asList(root.listFiles(fileFilter));
+        return dirs;
+    }
+
+    /**
+     * 获取指定指定路径下的子目录集合
+     * @param dir
+     * @return
+     */
+    public List<File> getDirs(String dir){
+        checkDir();
+        File root = new File(dir);
+        File[] files = root.listFiles(fileFilter);
+        if (files == null){
+            return getDirs();
+        }
+        return Arrays.asList(files);
     }
 
 

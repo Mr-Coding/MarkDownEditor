@@ -8,11 +8,10 @@ public class SettingsData {
     private SharedPreferences sharedPreferences;
     private Editor            editor;
 
-    public SettingsData(Context context, String fileName){
-        sharedPreferences = context.getSharedPreferences(fileName,Context.MODE_PRIVATE);
+    public SettingsData(Context context){
+        sharedPreferences = context.getSharedPreferences("settings",Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
-
 
     public boolean getthemeColor(boolean defaultValue){
         return sharedPreferences.getBoolean("themeColor",defaultValue);
@@ -29,5 +28,11 @@ public class SettingsData {
         return editor.putBoolean("isOpenFindMd",isOpenFindMd).commit();
     }
 
+    public String getDirectory(String defaultValue){
+        return sharedPreferences.getString("directory",defaultValue);
+    }
+    public boolean setDirectory(String isOpenFindMd){
+        return editor.putString("directory",isOpenFindMd).commit();
+    }
 
 }

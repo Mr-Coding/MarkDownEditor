@@ -1,9 +1,12 @@
 package com.frank.markdowneditor.Data.IO;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Environment;
 import android.util.Log;
 
 import com.frank.markdowneditor.Article;
+import com.frank.markdowneditor.Data.SettingsData;
 import com.frank.markdowneditor.Tools;
 
 import org.litepal.crud.DataSupport;
@@ -31,11 +34,15 @@ public class MD extends IOTools {
         }
     };
 
+    public void refreshPROJECT_PATH(Context context){
+        PROJECT_PATH = new SettingsData(context).getDirectory(Environment.getExternalStorageDirectory().getAbsolutePath()+"/MarkDown编辑器/");
+    }
+
     /**
      * 在MarkDown编辑器目录下获取没有导入的md文件
      * @return files 获取到的md文件数组
      */
-    private static File[] findMD(){
+    private File[] findMD(){
         checkDir();
         File projPath = new File(PROJECT_PATH);
         File[] files = projPath.listFiles(fileFilter);
@@ -45,7 +52,7 @@ public class MD extends IOTools {
     /**
      * 把获取到的md文件数组保存到数据库里
      */
-    public static int saveAsSqlite(){
+    public int saveAsSqlite(){
         File[] mdfiles = findMD(); //找到的.md文件
         if (mdfiles.length == 0){ Log.i("MD","没有.md文件！");return -1; }
         int length = 0;

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ToolbarTheme"
+        app:navigationIcon="@drawable/back_btn"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="@string/save_dir"
+        app:titleTextColor="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/dir_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:background="@drawable/bg_underline2"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/backTV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="向上"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/dirfornowTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:text="/storage/sdcard0/MarkDown编辑器" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/save_dir_rv"
+        android:background="#efefef"
+        android:layout_below="@id/dir_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_below="@id/main_toolbar"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floating_action_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:src="@drawable/icon_check"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="16dp"
+            app:layout_anchorGravity="bottom|right|end"
+            android:layout_gravity="bottom|end"
+            app:backgroundTint="@color/colorAccent"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

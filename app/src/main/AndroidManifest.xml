@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.frank.markdowneditor">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="org.litepal.LitePalApplication"
@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activitys.SplashActivity"
+        <activity
+            android:name=".Activitys.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,16 +22,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activitys.MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activitys.WritingActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activitys.SettingsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activitys.AboutActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activitys.HelpActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activitys.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitys.WritingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitys.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitys.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activitys.HelpActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activitys.SettingSaveDirActivity"></activity>
     </application>
 
 </manifest>

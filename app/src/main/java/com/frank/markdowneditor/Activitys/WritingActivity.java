@@ -53,6 +53,7 @@ public class WritingActivity extends AppCompatActivity{
     private Article         article;
     private int id          = -1;
     private boolean         changeType = false;
+    private IOTools         ioTools;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -160,6 +161,7 @@ public class WritingActivity extends AppCompatActivity{
     }
 
     public void initData(){
+        ioTools = new IOTools(this);
         id = getIntent().getIntExtra("id",-1);
         if (id != -1) {
             article = DataSupport.find(Article.class, id);
@@ -221,14 +223,14 @@ public class WritingActivity extends AppCompatActivity{
                 switch(item.getItemId()){
                     case R.id.saveAsHTML:
                         if (!changeType) {
-                            if (IOTools.savaAsHtml(article, IOTools.Type.MARKDOWN)) {
-                                Snackbar.make(page2, "保存到" + IOTools.getProjectPath() + "下！", Snackbar.LENGTH_LONG).show();
+                            if (ioTools.savaAsHtml(article, IOTools.Type.MARKDOWN)) {
+                                Snackbar.make(page2, "保存到" + ioTools.getProjectPath() + "下！", Snackbar.LENGTH_LONG).show();
                             } else {
                                 Snackbar.make(page2, "保存失败！", Snackbar.LENGTH_LONG).show();
                             }
                         }else {
-                            if (IOTools.savaAsHtml(article, IOTools.Type.TXT)) {
-                                Snackbar.make(page2, "保存到" + IOTools.getProjectPath() + "下！", Snackbar.LENGTH_LONG).show();
+                            if (ioTools.savaAsHtml(article, IOTools.Type.TXT)) {
+                                Snackbar.make(page2, "保存到" + ioTools.getProjectPath() + "下！", Snackbar.LENGTH_LONG).show();
                             } else {
                                 Snackbar.make(page2, "保存失败！", Snackbar.LENGTH_LONG).show();
                             }
@@ -243,15 +245,15 @@ public class WritingActivity extends AppCompatActivity{
                         Canvas canvas = new Canvas(bitmap);
                         //绘制
                         webView.draw(canvas);
-                        if (IOTools.saveAsImg(bitmap,article)){
-                            Snackbar.make(page2,"已保存到"+ IOTools.getProjectPath()+"下！",Snackbar.LENGTH_LONG).show();
+                        if (ioTools.saveAsImg(bitmap,article)){
+                            Snackbar.make(page2,"已保存到"+ ioTools.getProjectPath()+"下！",Snackbar.LENGTH_LONG).show();
                         }else {
                             Snackbar.make(page2,"保存失败！",Snackbar.LENGTH_LONG).show();
                         }
                         break;
                     case R.id.saveAsMd:
-                        if (IOTools.saveAsMD(article)){
-                            Snackbar.make(page2,"已保存到"+ IOTools.getProjectPath()+"下！",Snackbar.LENGTH_LONG).show();
+                        if (ioTools.saveAsMD(article)){
+                            Snackbar.make(page2,"已保存到"+ ioTools.getProjectPath()+"下！",Snackbar.LENGTH_LONG).show();
                         }else {
                             Snackbar.make(page2,"保存失败！",Snackbar.LENGTH_LONG).show();
                         }
